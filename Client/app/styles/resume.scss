@@ -1,0 +1,151 @@
+@mixin rotate($deg) {
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    -o-transform: rotate($deg);
+}
+#resume {
+    padding-bottom: 30px;
+    .blue {
+        color: #3497c2;
+    }
+
+    table {
+        width: 100%;
+        background: transparent;
+        border: none;
+
+        tr:nth-of-type(even) {
+            background: transparent;
+        }
+
+        td {
+            font-weight: normal;
+        }
+    }
+
+    section {
+        position: relative;
+        margin-bottom: 20px;
+
+        .profile {
+            top: 10px;
+            left: -82px;
+        }
+
+        .work_experience {
+            top: 67px;
+            left: -139px;
+        }
+
+        .qualifications {
+            top: 50px;
+            left: -120px;
+        }
+
+        .skills {
+            top: 18px;
+            left: -88px;
+        }
+
+        .training {
+            top: 20px;
+            left: -90px;
+        }
+
+        .activities {
+            top: 80px;
+            left: -151px;
+        }
+    }
+
+    ul {
+        font-family: "openSansLight";
+        list-style: square;
+        list-style-position: inside;
+    }
+
+    .rotate {
+        width: auto;
+        margin-right: 0px;
+        padding-right: 30px;
+        position: absolute;
+        font-size: 24px;
+        @include rotate(-90deg);
+
+        &.red {
+            color: #703030;
+        }
+
+        &.blue {
+            color: #305170;
+        }
+
+        &.green {
+            color: #307030;
+        }
+    }
+
+    .company {
+        position: relative;
+
+        .name,
+        .position,
+        .date {
+            font-weight: normal;
+        }
+
+        .name {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 20px;
+        }
+
+        .position {
+            font-size: 20px;
+            color: #393939;
+        }
+
+        .date {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin-bottom: 0;
+            float: right;
+            width: 242px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            color: #ebebeb;
+            background-color: #393939;
+        }
+    }
+
+    .academic {
+        font-family: "openSansLight";
+
+        dt {
+            float: left;
+            height: 40px;
+            width: 140px;
+            font-weight: normal;
+
+            & + dd {
+                color: #3497c2;
+                font-size: 18px;
+            }
+        }
+
+        dd {
+            margin-bottom: 0px;
+        }
+
+        &:last-child {
+            font-size: 18px;
+        }
+
+        &:last-child {
+            color: #393939;
+        }
+    }
+}

@@ -1,0 +1,44 @@
+doctype 5
+html
+    head
+        title= title
+
+        block styles
+            link(rel='stylesheet', href='stylesheets/fonts.css')
+            link(rel='stylesheet', href='stylesheets/reset.css')
+            link(rel='stylesheet', href='stylesheets/text.css')
+            link(rel='stylesheet', href='stylesheets/960.css')
+            link(rel='stylesheet', href='stylesheets/avjpl.css')
+
+        block scripts
+            javascripts(href='javascripts/modernizr.js')
+
+    body
+        #header
+            .container_16
+                header
+                    h1 Adrian Lawrence
+
+                    nav
+                        ul
+                            li
+                                a(href='/') Home
+                            li
+                                a(href='/blog') Blog
+                            li.portfolio
+                                a(href='/portfolio') Portfolio
+                            li
+                                a(href='/resume') Resume
+
+        .container_16
+            main
+                block content
+
+        #footer
+            .container_16
+                footer
+                    Lorem ipsum
+
+    script(src='javascripts/jquery.js')
+    script(src='javascripts/jquery.960grid-1.0.min.js')
+    script(src='javascripts/avjpl.js')

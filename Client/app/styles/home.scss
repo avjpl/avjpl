@@ -1,0 +1,33 @@
+section {
+    &.message {
+        font-size: 32px;
+        text-align: center;
+        color: #8f6868;
+    }
+
+    p {
+        line-height: 1.1em;
+    }
+
+    p,
+    div + h1 {
+        font-family: "openSansLight";
+        font-weight: normal;
+    }
+
+    div {
+        h1 {
+            font-size: 22px !important;
+        }
+    }
+
+    div > img {
+        width: 228px;
+        height: 154px;
+    }
+}
+
+.recent_post,
+.recent_work {
+    margin-bottom: 20px;
+}

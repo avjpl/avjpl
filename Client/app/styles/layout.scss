@@ -1,0 +1,57 @@
+html,
+body {
+    background: transparent url('../images/bg.png');
+}
+
+#header {
+    background: transparent url('../images/header_bg.png') repeat-x;
+    height: 99px;
+    margin: 0 0 32px 0;
+
+    header {
+        h1 {
+            font: normal 45px/90% "titrebook";
+            letter-spacing: 0.1em;
+            height: 115px;
+            padding: 38px 0 0 0;
+            color: #8f6868;
+        }
+
+        nav {
+            float: right;
+            ul {
+                float: right;
+                margin-top: 60px;
+                li {
+                    float: left;
+                    margin: 0 20px 0 0;
+                    list-style: none;
+                    font-family: titrebook;
+
+                    a {
+                        text-decoration: none;
+                        font-size: 20px;
+                        color: #8f6868;
+                    }
+                }
+
+                .portfolio {
+                    margin-left: 265px;
+                }
+            }
+        }
+    }
+}
+
+#content {
+    padding: 33px 0 0 0;
+}
+
+#footer {
+    position: relative;
+    bottom: 0px;
+    background: transparent url('../images/footer_bg.png') repeat-x;
+    height: 199px;
+    width: 100%;
+    padding: 20px 0 0 0px;
+}
