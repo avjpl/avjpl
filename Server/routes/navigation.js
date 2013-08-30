@@ -1,6 +1,4 @@
 var blog        = require('../models/Blog'),
-//    comment     = require('../models/Comment'),
-    // StringUtil  = require('../utils/StringUtils'),
     util        = require('util'),
     fs          = require('fs');
 
@@ -34,18 +32,6 @@ exports.index = function(req, res) {
     //     res.json(doc);
     // });
 };
-
-// exports.portfolio = function(req, res) {
-//   res.render('portfolio', {title: "portfolio"});
-// };
-
-// exports.blog = function(req, res) {
-//   res.render('blog', {title: "blog"});
-// };
-
-// exports.resume = function(req, res) {
-//   res.render('resume', {title: "resume"});
-// };
 
 exports.newPost = function(req, res) {
      res.render('pages/new');

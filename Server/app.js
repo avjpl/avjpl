@@ -22,8 +22,6 @@ var app = express();
 
 app.configure(function() {
   app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -42,9 +40,6 @@ app.configure('development', function() {
 
 app.get('/', routes.index);
 app.get('/test', routes.test);
-// app.get('/blog', routes.blog);
-// app.get('/portfolio', routes.portfolio);
-// app.get('/resume', routes.resume);
 app.get('/blog', routes.posts);
 app.get('/blog/post/:id', routes.viewPost);
 app.get('/pages/newPost', routes.newPost);
