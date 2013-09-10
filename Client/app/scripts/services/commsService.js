@@ -9,5 +9,11 @@ angular.module('ClientApp').service('commsService', function commsService($http)
     });
   };
 
+  commsService.fetchBlogPostById = function(id, callback) {
+    $http.get('http://avjpl-dev-server:3000/blog/post/' + id).success(function(data) {
+      callback(data);
+    });
+  };
+
   return commsService;
 });

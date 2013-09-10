@@ -1,5 +1,9 @@
 @import "foundation/scss/normalize";
 @import "foundation/scss/foundation";
+@import "foundation/scss/variables";
+@import "foundation/scss/components/global";
+@import "foundation/scss/components/buttons";
+@import "foundation/scss/components/forms";
 
 /* Put your CSS here */
 @import "fonts";

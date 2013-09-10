@@ -7,18 +7,18 @@ angular.module('ClientApp', []).config(function($routeProvider, $locationProvide
     templateUrl: 'views/home.html',
     controller: 'HomeCtrl'
   }).when('/blog', {
-      templateUrl: 'views/blog.html',
-      controller: 'BlogCtrl'
-    }).when('/portfolio', {
-      templateUrl: 'views/portfolio.html',
-      controller: 'PortfoilioCtrl'
-    }).when('/resume', {
-      templateUrl: 'views/resume.html',
-      controller: 'ResumeCtrl'
-    }).when('/post', {
-      templateUrl: 'views/post.html',
-      controller: 'ResumeCtrl'
-    }).otherwise({
-      redirectTo: '/'
-    });
+    templateUrl: 'views/blog.html',
+    controller: 'BlogCtrl'
+  }).when('/portfolio', {
+    templateUrl: 'views/portfolio.html',
+    controller: 'PortfoilioCtrl'
+  }).when('/resume', {
+    templateUrl: 'views/resume.html',
+    controller: 'ResumeCtrl'
+  }).when('/blog/post/:id', {
+    templateUrl: '/views/post.html',
+    controller: 'BlogCtrl'
+  }).otherwise({
+    redirectTo: '/'
+  });
 });

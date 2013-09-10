@@ -4,8 +4,4 @@ angular.module('ClientApp').controller('HomeCtrl', ['$scope', 'commsService', fu
   $scope.awesomeThings = [
     'Home page'
   ];
-
-  commsService.getBlogListing(function(data) {
-    $scope.msg = data.test;
-  });
 }]);
