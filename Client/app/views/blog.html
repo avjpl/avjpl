@@ -1,10 +1,11 @@
 <div class="row">
     <section class="large-9 columns">
-        <article ng-repeat="post in posts">
+        <article data-ng-repeat="post in posts">
             <h1><a href="/blog/post/{{ post._id }}">{{ post.title }}</a></h1>
             <p>Posted: <time datetime="2013-09-03">{{ post.created_at }}</time></p>
-            <img src="../images/blog/pic.png"></img>
-            <p>{{ post.desc }}</p>
+            <img data-ng-src="{{ post.image }}" />
+            {{ post.image }}
+            {{ post.desc }}
             <ul>
                 <li>MySQL</li>
                 <li class="last-child">PHP5</li>

@@ -2,8 +2,8 @@
     <section class="large-9 columns post">
         <h1>{{ post.title }}</h1>
         <p>Posted: <time datetime="2013-09-03">{{ post.created_at }}</time></p>
-        <img src="/images/blog/pic.png"></img>
-        <p>{{ post.content }}</p>
+        <img data-ng-src="{{ post.image }}"></img>
+        <div data-ng-bind-html="post.content"></div>
 
         <article>
             <h1>Comments</h1>

@@ -1,0 +1,15 @@
+<h1>{{ action }} Blog Post {{ postNo }}</h1>
+<!-- /processPost -->
+<form method='POST' action='' enctype='multipart/form-data' ng-submit="submit()">
+	<input ng-model="title" type='text' name='title' value='{{ title }}' placeholder='Title' autofocus />
+
+	<input type='file' name='file' value='{{ filename }}'/>
+
+	<textarea class='editor' id='description' name='description' placeholder='Description'>{{ description }}</textarea>
+
+	<textarea class='editor' id='content' name='content' placeholder='Content'>{{ content }}</textarea>
+
+	<input ng-model="tag" type='text' name='tag' placeholder='Tag' />
+
+	<button type='submit'>{{ labelAction }}</button>
+</form>

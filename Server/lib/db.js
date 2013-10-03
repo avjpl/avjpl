@@ -1,21 +1,15 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    db = null;
 
-module.exports.mongoose = mongoose;
-module.exports.Schema = Schema;
+mongoose.connect('mongodb://localhost/avjpl');
 
-// Connect to database
-var username    = 'user',
-    password    = 'password',
-    address     = 'mongodb://172.16.168.188/avjpl';
+db = mongoose.connection;
 
-connect();
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log('connected');
+});
 
-function connect() {
-    var url = address;
-    mongoose.connect(url);
-}
-
-function disconnect() {
-    mongoose.disconnect();
-}
+// module.exports.mongoose = mongoose;
+// module.exports.Schema = Schema;

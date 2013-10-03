@@ -8,11 +8,12 @@ module.exports = function(db) {
   };
 
   admin.processPost = function(req, res) {
-    db.addPost(req.body, req, function(err) {
-      if (err) throw err;
+    // db.addPost(req.body, req, function(err) {
+    //   if (err) throw err;
 
-      res.redirect('/posts');
-    });
+    //   res.redirect('/posts');
+    // });
+    consol.log(req);
   };
 
   admin.update = function(req, res) {

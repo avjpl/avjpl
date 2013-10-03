@@ -1,0 +1,51 @@
+<div class="row">
+    <section class="large-9 columns post">
+        <h1>{{ post.title }}</h1>
+        <p>Posted: <time datetime="2013-09-03">{{ post.created_at }}</time></p>
+        <img src="/images/blog/pic.png"></img>
+        <p>{{ post.content }}</p>
+
+        <article>
+            <h1>Comments</h1>
+        </article>
+    </section>
+
+    <aside class="large-3 columns">
+        <section>
+            <form>
+                <div class="search_box">
+                    <label>Search</label>
+                    <input placeholder="Search term" type="text" />
+                    <button type="submit" name="search"><span>Search</span></button>
+                </div>
+            </form>
+        </section>
+
+        <section>
+            <h1>Categories</h1>
+            <ul>
+                <li class="programming">
+                    <span>Programming</span>
+                </li>
+                <li class="shareable">
+                    <span>Web Design</span>
+                </li>
+                <li class="share">
+                    <span>Photography</span>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Recent Posts</h1>
+        </section>
+
+        <section>
+            <h1>Photostream</h1>
+        </section>
+
+        <section>
+            <h1>Tags</h1>
+        </section>
+    </aside>
+</div>

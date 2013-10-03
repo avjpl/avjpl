@@ -1,8 +1,6 @@
 'use strict';
 
-angular.module('ClientApp', []).config(function($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode(true);
-
+angular.module('ClientApp', ['ngSanitize']).config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
     templateUrl: 'views/home.html',
     controller: 'HomeCtrl'
@@ -17,8 +15,13 @@ angular.module('ClientApp', []).config(function($routeProvider, $locationProvide
     controller: 'ResumeCtrl'
   }).when('/blog/post/:id', {
     templateUrl: '/views/post.html',
-    controller: 'BlogCtrl'
+    controller: 'PostCtrl'
+  }).when('/blog/form/', {
+    templateUrl: '/views/form.html'
+    // controller: 'BlogCtrl'
   }).otherwise({
     redirectTo: '/'
   });
+
+  $locationProvider.html5Mode(true);
 });
