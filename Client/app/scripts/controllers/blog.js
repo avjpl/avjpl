@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('ClientApp').controller('BlogCtrl', ['$scope', '$routeParams', '$location', 'commsService',
-  function (scope, routeParams, location, commsService) {
+angular.module('ClientApp').controller('BlogCtrl', ['$scope', 'commsService',
+  function (scope, commsService) {
 
   commsService.getBlogListing(function(data) {
     scope.posts = data;
