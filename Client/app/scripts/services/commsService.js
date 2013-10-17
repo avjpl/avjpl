@@ -27,6 +27,12 @@ angular.module('ClientApp').service('commsService', function commsService($http)
     });
   };
 
+  commsService.fetchBlogPostCategories = function(id, callback) {
+    $http.delete('http://avjpl-dev-server:3000/mongo-api/categories').success(function(data) {
+      callback(data);
+    });
+  };
+
   commsService.addBlogPostComment = function(id, callback) {
     $http.put('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/' + id).success(function(data) {
       callback(data);
@@ -38,12 +44,6 @@ angular.module('ClientApp').service('commsService', function commsService($http)
       callback(data);
     });
   };
-
-  // commsService.newPost = function(data, callback) {
-  //   $http.post('http://avjpl-dev-server:3000/blog/admin/new', data).success(function(msg) {
-  //     callback(msg);
-  //   });
-  // };
 
   return commsService;
 });

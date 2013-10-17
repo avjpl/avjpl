@@ -7,5 +7,6 @@
 	<textarea class='editor' id='description' name='description' placeholder='Blog Short Description' description="{{ post.short_desc }}"></textarea>
 	<textarea class='editor' id='content' name='content' placeholder='Blog Content' content="{{ post.content }}"></textarea>
 	<input type='text' name='tags' placeholder='Blog Tag' value='{{ post.tags }}'/>
+	<input type="text" name="category" placeholder="Category" value="{{ post.category }}" />
 	<button type='submit'>{{ labelAction }}</button>
 </form>
