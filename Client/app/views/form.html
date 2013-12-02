@@ -1,12 +1,12 @@
 <h1>{{ action }} Blog Post {{ postNo }}</h1>
 
-<form method='post' action='http://avjpl-dev-server:3000/mongo-api/new/post' enctype='multipart/form-data'>
+<form method='{{ method }}' action='{{ url }}' enctype='multipart/form-data'>
 	<input type='text' name='title' placeholder='Blog Title' value='{{ post.title }}' autofocus />
 	<input type='file' name='blog_img' />
 	<img ng-src="{{ post.image }}" />
-	<textarea class='editor' id='description' name='description' placeholder='Blog Short Description' description="{{ post.short_desc }}"></textarea>
+	<textarea class='editor' id='description' name='description' placeholder='Blog Short Description' description="{{ post.description }}"></textarea>
 	<textarea class='editor' id='content' name='content' placeholder='Blog Content' content="{{ post.content }}"></textarea>
 	<input type='text' name='tags' placeholder='Blog Tag' value='{{ post.tags }}'/>
 	<input type="text" name="category" placeholder="Category" value="{{ post.category }}" />
-	<button type='submit'>{{ labelAction }}</button>
+	<button type='submit'>{{ labelAction || 'Add' }}</button>
 </form>

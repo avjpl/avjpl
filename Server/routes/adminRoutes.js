@@ -13,7 +13,7 @@ module.exports = function(db) {
 
     //   res.redirect('/posts');
     // });
-    consol.log(req);
+    console.log(req);
   };
 
   admin.update = function(req, res) {

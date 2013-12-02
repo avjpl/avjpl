@@ -3,27 +3,13 @@
 angular.module('ClientApp').controller('BlogCtrl', ['$scope', 'commsService',
   function (scope, commsService) {
 
-  commsService.getBlogListing(function(data) {
-    scope.posts = data;
+  var pageNo = scope.$stateParams.pageNo ? scope.$stateParams.pageNo : '';
+
+  commsService.getTotalDocumentCount(function(data) {
+    scope.totalPages = new Array(data.totalPages);
   });
 
-  // scope.submit = function() {
-  //   var data = {};
-  //   var filePath = $('input[name="file"]').val();
-  //   var fileIdx = filePath.lastIndexOf('\\') + 1;
-
-  //   data.title = scope.title;
-  //   data.file = filePath.substr(fileIdx);
-  //   data.description = CKEDITOR.instances.description.getData();
-  //   data.content = CKEDITOR.instances.content.getData();
-  //   data.tags = scope.tag;
-
-  //   console.log();
-
-  //   // commsService.newPost(data, function(msg) {
-  //   //   scope.msg = msg;
-  //   // });
-
-  //   return false;
-  // };
+  commsService.getBlogListing(pageNo, function(data) {
+    scope.posts = data;
+  });
 }]);

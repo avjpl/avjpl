@@ -1,49 +1,61 @@
 'use strict';
 
 angular.module('ClientApp').service('commsService', function commsService($http) {
-  var commsService = {};
+  var api = {};
 
-  commsService.getBlogListing = function(callback) {
-    $http.get('http://avjpl-dev-server:3000/mongo-api/avjpl/blog').success(function(data) {
+  api.getBlogListing = function(pageNo, callback) {
+    $http.get('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/' + pageNo).success(function(data) {
       callback(data);
     });
   };
 
-  commsService.fetchBlogPostById = function(id, callback) {
+  api.getTotalDocumentCount = function(callback) {
+    $http.get('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/count').success(function(data) {
+      callback(data);
+    });
+  };
+
+  api.fetchBlogPostById = function(id, callback) {
     $http.get('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/' + id).success(function(data) {
       callback(data);
     });
   };
 
-  commsService.updateBlogPostById = function(id, callback) {
+  api.updateBlogPostById = function(id, callback) {
     $http.put('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/' + id).success(function(data) {
       callback(data);
     });
   };
 
-  commsService.deleteBlogPostById = function(id, callback) {
+  api.deleteBlogPostById = function(id, callback) {
     $http.delete('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/' + id).success(function(data) {
       callback(data);
     });
   };
 
-  commsService.fetchBlogPostCategories = function(id, callback) {
-    $http.delete('http://avjpl-dev-server:3000/mongo-api/categories').success(function(data) {
+  api.fetchBlogPostCategories = function(id, callback) {
+    $http.get('http://avjpl-dev-server:3000/mongo-api/categories').success(function(data) {
       callback(data);
     });
   };
 
-  commsService.addBlogPostComment = function(id, callback) {
+  api.addBlogPostComment = function(id, callback) {
     $http.put('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/' + id).success(function(data) {
       callback(data);
     });
   };
 
-  commsService.deleteBlogPostComment = function(id, callback) {
+  api.deleteBlogPostComment = function(id, callback) {
     $http.delete('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/' + id).success(function(data) {
       callback(data);
     });
   };
 
-  return commsService;
+  api.fetchLatest = function(db, collection, limit, callback) {
+    $http.get('http://avjpl-dev-server:3000/mongo-api/' + db + '/' + collection + '/' + limit + '/latest').success(function(data) {
+      callback(data);
+    });
+  };
+
+  return api;
 });

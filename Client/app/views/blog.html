@@ -2,17 +2,27 @@
     <section class="large-9 columns">
         <article data-ng-repeat="post in posts">
             <h1><a ui-sref="post({ id:post._id })">{{ post.title }}</a></h1>
-            <p>Edit post<a ui-sref="edit({ id:post._id, action:'edit' })">{{ post.title }}</a></p>
+            <p>Edit post<a ui-sref="edit({ id:post._id })">{{ post.title }}</a></p>
             <p>Posted: <time datetime="2013-09-03">{{ post.created_at }}</time></p>
             <img data-ng-src="{{ post.image }}" />
             {{ post.image }}
-            {{ post.desc }}
+
+            <div data-ng-bind-html="post.description"></div>
+
             <ul>
                 <li>MySQL</li>
                 <li class="last-child">PHP5</li>
                 <li>Comments</li>
             </ul>
         </article>
+
+        <div>
+            <ul>
+                <li data-ng-repeat="page in totalPages">
+                    <a ui-sref="blog({pageNo: $index + 1})">{{ $index + 1 }}</a>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <aside class="large-3 columns">

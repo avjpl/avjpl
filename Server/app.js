@@ -35,16 +35,6 @@ app.configure('development', function() {
 
 mongo = require("./lib/mongo")(app);
 
-// app.namespace('/admin', function() {
-//   app.get('/', admin.posts);
-//   app.get('/post/:id', admin.viewPost); // ? not sure about this one
-//   app.put('/edit/post/:id', admin.update);
-
-//   // Process user request actions
-//   app.post('/new', admin.processPost);
-//   app.post('/update', admin.updatePost);
-// });
-
 http.createServer(app).listen(app.get('port'), function() {
   console.log("Express server listening on port " + app.get('port'));
 });

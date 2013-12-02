@@ -13,8 +13,9 @@ angular.module('ClientApp', ['ui.router', 'ngSanitize']).config(function($stateP
       url: '/',
       templateUrl: '/views/home.html'
     })
+    // added an optional pageNo param here
     .state('blog', {
-      url: '/blog',
+      url: '/blog/{pageNo}',
       templateUrl: '/views/blog.html',
       controller: 'BlogCtrl'
     })
@@ -24,7 +25,12 @@ angular.module('ClientApp', ['ui.router', 'ngSanitize']).config(function($stateP
       controller: 'PostCtrl'
     })
     .state('edit', {
-      url: '/blog/post/:action/:id',
+      url: '/blog/post/edit/:id',
+      templateUrl: '/views/form.html',
+      controller: 'AdminCtrl'
+    })
+    .state('new', {
+      url: '/new/blog/post',
       templateUrl: '/views/form.html',
       controller: 'AdminCtrl'
     })
