@@ -9,6 +9,10 @@ angular.module('ClientApp').controller('BlogCtrl', ['$scope', 'commsService',
     scope.totalPages = new Array(data.totalPages);
   });
 
+  commsService.fetchBlogPostCategories(function(data) {
+    scope.categories = data;
+  });
+
   commsService.getBlogListing(pageNo, function(data) {
     scope.posts = data;
   });

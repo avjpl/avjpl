@@ -39,16 +39,9 @@
         <section>
             <h1>Categories</h1>
             <ul>
-                <li class="programming">
-                    <span>Programming</span>
-                </li>
-
-                <li class="shareable">
-                    <span>Web Design</span>
-                </li>
-
-                <li class="share">
-                    <span>Photography</span>
+                <!-- update css to reflect category names as classes -->
+                <li ng-repeat="category in categories" class="{{ categories[$index] | lowercase }}">
+                    <span>{{ categories[$index] }}</span>
                 </li>
             </ul>
         </section>

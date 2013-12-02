@@ -26,7 +26,7 @@ var Congo = function(app) {
       value += v[i];
     }
 
-    return keys;
+    return value;
   };
 
   var uploadImage = function(req) {
@@ -53,6 +53,23 @@ var Congo = function(app) {
         });
       });
     });
+  };
+
+  var paging = function(req) {
+    var min_page, max_page;
+
+    var pageNo = parseInt(req.params.pageNo, 10) ? parseInt(req.params.pageNo, 10) : 1;
+
+    console.log('Page number: ' + pageNo);
+
+    min_page = NUMBER_OF_PAGES * (pageNo - 1);
+    max_page = min_page + NUMBER_OF_PAGES;
+
+    return {
+      pageNo: pageNo,
+      min: min_page,
+      max: max_page
+    };
   };
 
   var insertDocument = function(db, targetCollection, data) {
@@ -125,34 +142,22 @@ var Congo = function(app) {
   });
 
   // get latest
+  /**
+   * TODO: This won't yet due to created_at dosen't exist in any documents
+   */
   app.get("/mongo-api/:db/:collection/:limit/latest", function(req, res) {
     var limit = parseInt(req.params.limit, 10);
     var dbName = req.params.db;
     var collName = req.params.collection;
 
     connect(dbName, function(db) {
-      db.collection(collName).find().limit(limit).sort('-create_at').toArray(function(err, items) {
+      db.collection(collName).find().limit(limit).sort('-created_at').toArray(function(err, items) {
         res.json(items);
       });
     });
   });
 
-  var paging = function(req) {
-    var min_page, max_page;
-
-    var pageNo = parseInt(req.params.pageNo, 10) ? parseInt(req.params.pageNo, 10) : 1;
-
-    min_page = NUMBER_OF_PAGES * (pageNo - 1);
-    max_page = min_page + NUMBER_OF_PAGES;
-
-    return {
-      pageNo: pageNo,
-      min: min_page,
-      max: max_page
-    };
-  };
-
-  app.get("/mongo-api/:db/:collection/count",function(req, res) {
+  app.get("/mongo-api/:db/:collection/count", function(req, res) {
     var dbName = req.params.db;
     var collName = req.params.collection;
 
@@ -164,27 +169,7 @@ var Congo = function(app) {
     });
   });
 
-  /**
-   * Add pagination to this route
-   */
-  app.get("/mongo-api/:db/:collection/:pageNo?*",function(req, res) {
-    var dbName = req.params.db;
-    var collName = req.params.collection;
-
-    var range = paging(req);
-
-    console.log(range);
-
-//    db.companies.find().min({_id:min_page}).max({_id:max_page})
-
-    connect(dbName, function(db) {
-      db.collection(collName).find().toArray(function(err, items) {
-        res.json(items.slice(range.min, range.max));
-      });
-    });
-  });
-
-  app.get("/mongo-api/:db/:collection/:id", function(req, res) {
+  app.get("/mongo-api/:db/:collection/view/:id*", function(req, res) {
     var dbName = req.params.db;
     var id = req.params.id;
     var collName = req.params.collection;
@@ -196,6 +181,24 @@ var Congo = function(app) {
         }
 
         res.json(doc);
+      });
+    });
+  });
+
+  app.get("/mongo-api/:db/:collection/:pageNo?", function(req, res) {
+    var dbName = req.params.db;
+    var collName = req.params.collection;
+
+    var range = paging(req);
+
+    console.log(range);
+
+    connect(dbName, function(db) {
+      db.collection(collName).find().toArray(function(err, items) {
+        /**
+         * TODO: Find a native solution instead of slice usage
+         */
+        res.json(items.slice(range.min, range.max));
       });
     });
   });
@@ -240,6 +243,7 @@ var Congo = function(app) {
 
         // uploadImage(req);
 
+        // redirect to listings
         res.json(out);
       });
     });
@@ -256,6 +260,7 @@ var Congo = function(app) {
     data.content      = req.body.content;
     data.tags         = req.body.tags || '';
     data.category     = req.body.category || '';
+    date.create_at    = new Date();
 
     split = data.tags.split(' ');
 

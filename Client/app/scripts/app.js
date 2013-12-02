@@ -24,11 +24,17 @@ angular.module('ClientApp', ['ui.router', 'ngSanitize']).config(function($stateP
       templateUrl: '/views/post.html',
       controller: 'PostCtrl'
     })
+    /**
+     * TODO: Add under admin
+     */
     .state('edit', {
       url: '/blog/post/edit/:id',
       templateUrl: '/views/form.html',
       controller: 'AdminCtrl'
     })
+    /**
+     * TODO: Add under admin
+     */
     .state('new', {
       url: '/new/blog/post',
       templateUrl: '/views/form.html',
