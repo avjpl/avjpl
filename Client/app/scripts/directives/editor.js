@@ -18,7 +18,6 @@ angular.module('ClientApp').directive('editor', function() {
 
       attrs.$observe('description', function(val) {
         CKEDITOR.on( 'instanceReady', function(ev) {
-          // console.log(ev);
           if ( ev.editor.name === 'description' ) {
             ev.editor.setData( $('#description').attr('description') );
           }

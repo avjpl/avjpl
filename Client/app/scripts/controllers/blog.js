@@ -5,6 +5,8 @@ angular.module('ClientApp').controller('BlogCtrl', ['$scope', 'commsService',
 
   var pageNo = scope.$stateParams.pageNo ? scope.$stateParams.pageNo : '';
 
+  scope.search = '';
+
   commsService.getTotalDocumentCount(function(data) {
     scope.totalPages = new Array(data.totalPages);
   });
@@ -16,4 +18,10 @@ angular.module('ClientApp').controller('BlogCtrl', ['$scope', 'commsService',
   commsService.getBlogListing(pageNo, function(data) {
     scope.posts = data;
   });
+
+  scope.doSearch = function() {
+    console.log(scope.search);
+
+    scope.search = '';
+  };
 }]);

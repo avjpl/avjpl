@@ -3,9 +3,9 @@
         <article data-ng-repeat="post in posts">
             <h1><a ui-sref="post({ id:post._id })">{{ post.title }}</a></h1>
             <p>Edit post<a ui-sref="edit({ id:post._id })">{{ post.title }}</a></p>
-            <p>Posted: <time datetime="2013-09-03">{{ post.created_at }}</time></p>
+            <!--<p>Posted: <time datetime="2013-09-03">{{ post.created_at }}</time></p>-->
+            <p>Posted: {{ 1288323623006 | cdate:'MMMM Do YYYY' }}</p>
             <img data-ng-src="{{ post.image }}" />
-            {{ post.image }}
 
             <div data-ng-bind-html="post.description"></div>
 
@@ -30,8 +30,8 @@
             <form>
                 <div class="search_box">
                     <label>Search</label>
-                    <input placeholder="Search term" type="text" />
-                    <button type="submit" name="search"><span>Search</span></button>
+                    <input ng-model="search" placeholder="Search term" type="text" />
+                    <button type="submit" ng-click="doSearch()" name="search"><span>Search</span></button>
                 </div>
             </form>
         </section>
@@ -46,16 +46,16 @@
             </ul>
         </section>
 
-        <section>
-            <h1>Recent Posts</h1>
-        </section>
+        <!--<section>-->
+            <!--<h1>Recent Posts</h1>-->
+        <!--</section>-->
 
-        <section>
-            <h1>Photostream</h1>
-        </section>
+        <!--<section>-->
+            <!--<h1>Photostream</h1>-->
+        <!--</section>-->
 
-        <section>
-            <h1>Tags</h1>
-        </section>
+        <!--<section>-->
+            <!--<h1>Tags</h1>-->
+        <!--</section>-->
     </aside>
 </div>
