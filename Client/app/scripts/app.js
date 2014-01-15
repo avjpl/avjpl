@@ -1,8 +1,16 @@
 'use strict';
 
-angular.module('ClientApp', ['ui.router', 'ngSanitize']).config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+angular.module('ClientApp', ['ui.router', 'ngSanitize']).config(function($stateProvider, $urlRouterProvider, $locationProvider, $sceDelegateProvider) {
 
-  // $locationProvider.html5Mode(true);
+//  $locationProvider.html5Mode(true);
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+        // Allow same origin resource loads.
+//        'self',
+        // Allow loading from our assets domain.  Notice the difference between * and **.
+//        'http://srv*.assets.example.com/**',
+        'http://avjpl-dev-server:3000/mongo-api/**']
+    );
 
   // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise('/');

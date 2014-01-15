@@ -6,7 +6,7 @@ var mongo     = require("mongoskin"),
 
 var Congo = function(app) {
   var congo = {};
-  var NUMBER_OF_PAGES = 2;
+  var NUMBER_OF_PAGES = 10;
 
   // assume localhost
   var connect = function(dbName, next) {
@@ -115,7 +115,7 @@ var Congo = function(app) {
         db.collection(targetCollection).insert(data, function(err, result) {
           var out = {error : err, result : result};
 
-//          return out;
+          return out;
         });
       });
     });
@@ -191,14 +191,15 @@ var Congo = function(app) {
 
     var range = paging(req);
 
-    console.log(range);
+//    console.log(range);
 
     connect(dbName, function(db) {
       db.collection(collName).find().toArray(function(err, items) {
         /**
          * TODO: Find a native solution instead of slice usage
          */
-        res.json(items.slice(range.min, range.max));
+//        res.json(items.slice(range.min, range.max));
+        res.json(items);
       });
     });
   });
@@ -260,7 +261,7 @@ var Congo = function(app) {
     data.content      = req.body.content;
     data.tags         = req.body.tags || '';
     data.category     = req.body.category || '';
-    date.create_at    = new Date();
+    data.create_at    = new Date();
 
     split = data.tags.split(' ');
 

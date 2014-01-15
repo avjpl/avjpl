@@ -31,9 +31,9 @@
             <div class="row">
                 <div class="large-12 columns">
                     <header>
-                        <h1 class="large-6 columns">Adrian Lawrence</h1>
+                        <h1 class="small-6 large-6 columns">Adrian Lawrence</h1>
 
-                        <div class="large-6 columns">
+                        <div class="small-6 large-6 columns">
                             <nav>
                                 <ul>
                                     <li><a ui-sref="home">Home</a></li>
@@ -49,9 +49,7 @@
         </div>
 
         <main>
-            <div class="row">
-                <div class="large-12 columns" ui-view></div>
-            </div>
+            <div ui-view></div>
         </main>
 
         <div id="footer">
@@ -72,20 +70,39 @@
             s.parentNode.insertBefore(g,s)}(document,'script'));*/
         </script>
 
+        <!-- build:js({.tmp,app}) scripts/isotope.js -->
         <script src="bower_components/jquery/jquery.min.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+        <script src="bower_components/eventie/eventie.js"></script>
+        <script src="bower_components/doc-ready/doc-ready.js"></script>
+        <script src="bower_components/get-style-property/get-style-property.js"></script>
+        <script src="bower_components/get-size/get-size.js"></script>
+        <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+        <script src="bower_components/matches-selector/matches-selector.js"></script>
+        <script src="bower_components/outlayer/item.js"></script>
+        <script src="bower_components/outlayer/outlayer.js"></script>
+
+        <script src="bower_components/masonry/masonry.js"></script>
+
+        <script src="bower_components/isotope/js/item.js"></script>
+        <script src="bower_components/isotope/js/layout-mode.js"></script>
+        <script src="bower_components/isotope/js/isotope.js"></script>
+        <script src="bower_components/isotope/js/layout-modes/fit-rows.js"></script>
+        <script src="bower_components/isotope/js/layout-modes/vertical.js"></script>
+        <script src="bower_components/isotope/js/layout-modes/masonry.js"></script>
+        <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="bower_components/angular/angular.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/home.js"></script>
         <script src="scripts/controllers/blog.js"></script>
         <script src="scripts/controllers/portfolio.js"></script>
         <script src="scripts/controllers/resume.js"></script>
-        <!-- endbuild -->
-
         <script src="bower_components/ckeditor/ckeditor.js">
             var CKEDITOR_BASEPATH = "bower_components/ckeditor/";
         </script>
+        <!-- endbuild -->
 
         <!-- build:js scripts/modules.js -->
         <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -98,6 +115,7 @@
         <script src="scripts/controllers/post.js"></script>
         <script src="scripts/controllers/Admin.js"></script>
         <script src="scripts/filters/cdate.js"></script>
+        <script src="scripts/directives/isoRepeat.js"></script>
         <!-- endbuild -->
     </body>
 </html>

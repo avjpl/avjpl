@@ -1,61 +1,29 @@
 <div class="row">
-    <section class="large-9 columns">
-        <article data-ng-repeat="post in posts">
-            <h1><a ui-sref="post({ id:post._id })">{{ post.title }}</a></h1>
-            <p>Edit post<a ui-sref="edit({ id:post._id })">{{ post.title }}</a></p>
-            <!--<p>Posted: <time datetime="2013-09-03">{{ post.created_at }}</time></p>-->
-            <p>Posted: {{ 1288323623006 | cdate:'MMMM Do YYYY' }}</p>
-            <img data-ng-src="{{ post.image }}" />
-
-            <div data-ng-bind-html="post.description"></div>
-
-            <ul>
-                <li>MySQL</li>
-                <li class="last-child">PHP5</li>
-                <li>Comments</li>
-            </ul>
-        </article>
-
-        <div>
-            <ul>
-                <li data-ng-repeat="page in totalPages">
-                    <a ui-sref="blog({pageNo: $index + 1})">{{ $index + 1 }}</a>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <aside class="large-3 columns">
+    <div class="large-12 columns">
         <section>
-            <form>
-                <div class="search_box">
-                    <label>Search</label>
-                    <input ng-model="search" placeholder="Search term" type="text" />
-                    <button type="submit" ng-click="doSearch()" name="search"><span>Search</span></button>
+            <div class="row">
+                <div id="filters" class="large-12 columns">
+                    <button data-filter="*">All</button><!-- default -->
+                    <button data-ng-repeat="category in categories" data-filter=".{{category | lowercase}}">{{category}}</button>
                 </div>
-            </form>
+            </div>
         </section>
 
-        <section>
-            <h1>Categories</h1>
-            <ul>
-                <!-- update css to reflect category names as classes -->
-                <li ng-repeat="category in categories" class="{{ categories[$index] | lowercase }}">
-                    <span>{{ categories[$index] }}</span>
-                </li>
-            </ul>
+        <section id="container" data-iso-repeat="posts">
+            <!--<article data-ng-repeat="post in posts" class="small-3 columns left item">
+                <header>
+                    <div>
+                        <img data-ng-src="{{ post.image }}" />
+                    </div>
+
+                    <span></span>
+                    <span class="arrow-up"></span>
+                </header>
+                <footer>
+                    <h4><a ui-sref="post({ id:post._id })">{{ post.title }}</a></h4>
+                    <time>{{ 1288323623006 | cdate:'MMMM D, YYYY' }}</time>
+                </footer>
+            </article>-->
         </section>
-
-        <!--<section>-->
-            <!--<h1>Recent Posts</h1>-->
-        <!--</section>-->
-
-        <!--<section>-->
-            <!--<h1>Photostream</h1>-->
-        <!--</section>-->
-
-        <!--<section>-->
-            <!--<h1>Tags</h1>-->
-        <!--</section>-->
-    </aside>
+    </div>
 </div>

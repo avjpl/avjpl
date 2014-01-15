@@ -4,7 +4,6 @@ angular.module('ClientApp').service('commsService', function commsService($http)
   var api = {};
 
   api.getBlogListing = function(pageNo, callback) {
-    console.log(pageNo);
     $http.get('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/' + pageNo).success(function(data) {
       callback(data);
     });

@@ -7,9 +7,9 @@ angular.module('ClientApp').controller('BlogCtrl', ['$scope', 'commsService',
 
   scope.search = '';
 
-  commsService.getTotalDocumentCount(function(data) {
-    scope.totalPages = new Array(data.totalPages);
-  });
+//  commsService.getTotalDocumentCount(function(data) {
+//    scope.totalPages = new Array(data.totalPages);
+//  });
 
   commsService.fetchBlogPostCategories(function(data) {
     scope.categories = data;
@@ -20,7 +20,7 @@ angular.module('ClientApp').controller('BlogCtrl', ['$scope', 'commsService',
   });
 
   scope.doSearch = function() {
-    console.log(scope.search);
+//    console.log(scope.search);
 
     scope.search = '';
   };
