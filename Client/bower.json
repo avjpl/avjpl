@@ -12,13 +12,21 @@
     "underscore": "~1.5.1",
     "modernizr": "~2.6.2",
     "angular-route": "~1.2.0",
-    "angular-ui-router": "~0.2.0",
     "foundation": "~5.0.2",
     "momentjs": "~2.4.0",
-    "isotope": "2.0.0-beta.7"
+    "isotope": "2.0.0-beta.8",
+    "angular-ui-router": "0.2.8-bowratic-tedium",
+    "isotope-cells-by-row": "metafizzy/isotope-cells-by-row#~0.1.2",
+    "isotope-masonry-horizontal": "metafizzy/isotope-masonry-horizontal#~0.1.1",
+    "isotope-fit-columns": "metafizzy/isotope-fit-columns#~0.1.2",
+    "isotope-cells-by-column": "metafizzy/isotope-cells-by-column#~0.1.3",
+    "isotope-horizontal": "metafizzy/isotope-horizontal#~0.1.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",
     "angular-scenario": "~1.2.0"
+  },
+  "resolutions": {
+    "jquery": ">= 2.0.0"
   }
 }

@@ -185,7 +185,7 @@ var Congo = function(app) {
     });
   });
 
-  app.get("/mongo-api/:db/:collection/:pageNo?", function(req, res) {
+  app.get("/mongo-api/:db/:collection", function(req, res) {
     var dbName = req.params.db;
     var collName = req.params.collection;
 

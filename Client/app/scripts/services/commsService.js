@@ -3,8 +3,8 @@
 angular.module('ClientApp').service('commsService', function commsService($http) {
   var api = {};
 
-  api.getBlogListing = function(pageNo, callback) {
-    $http.get('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/' + pageNo).success(function(data) {
+  api.getBlogListing = function(callback) {
+    $http.get('http://avjpl-dev-server:3000/mongo-api/avjpl/blog/').success(function(data) {
       callback(data);
     });
   };
