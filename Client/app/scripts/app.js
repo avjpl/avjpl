@@ -19,8 +19,13 @@ angular.module('ClientApp', ['ui.router', 'ngSanitize']).config(function($stateP
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: '/views/home.html'
+      templateUrl: '/views/blog.html',
+      controller: 'BlogCtrl'
     })
+//    .state('home', {
+//      url: '/',
+//      templateUrl: '/views/home.html'
+//    })
     // added an optional pageNo param here
     .state('blog', {
       url: '/blog/{pageNo}',

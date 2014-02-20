@@ -5,8 +5,7 @@ angular.module('ClientApp').directive('isoRepeat', function ($timeout) {
         scope: {
             items: '=isoRepeat'
         },
-
-        template: '<article data-ng-repeat="post in items" class="small-3 columns left item {{post.category | lowercase}}">' +
+        template: '<article data-ng-repeat="post in items" class="small-6 medium-4 large-3 columns item {{post.category | lowercase}}">' +
                     '<header>' +
                         '<div>' +
                             '<img data-ng-src="{{ post.image }}" />' +

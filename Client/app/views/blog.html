@@ -3,27 +3,14 @@
         <section>
             <div class="row">
                 <div id="filters" class="large-12 columns">
-                    <button data-filter="*">All</button><!-- default -->
-                    <button data-ng-repeat="category in categories" data-filter=".{{category | lowercase}}">{{category}}</button>
+                    <div>
+                        <button data-filter="*">All</button><!-- default -->
+                        <button data-ng-repeat="category in categories" data-filter=".{{category | lowercase}}">{{category}}</button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="container" data-iso-repeat="posts">
-            <!--<article data-ng-repeat="post in posts" class="small-3 columns left item">
-                <header>
-                    <div>
-                        <img data-ng-src="{{ post.image }}" />
-                    </div>
-
-                    <span></span>
-                    <span class="arrow-up"></span>
-                </header>
-                <footer>
-                    <h4><a ui-sref="post({ id:post._id })">{{ post.title }}</a></h4>
-                    <time>{{ 1288323623006 | cdate:'MMMM D, YYYY' }}</time>
-                </footer>
-            </article>-->
-        </section>
+        <section class="small-block-grid-2 medium-block-grid-3 large-block-grid-4" id="container" data-iso-repeat="posts"></section>
     </div>
 </div>

@@ -20,8 +20,27 @@ section {
     }
 }
 
+section #filters {
+  div:first-child {
+    float: right;
+  }
+
+  button {
+    float: left;
+    border-radius: 30px;
+    height: 33px;
+    line-height: 2px;
+    margin-left: 10px;
+  }
+}
+
 article {
     margin: rem-calc(0 0 20 0);
+
+    header,
+    footer {
+        width: rem-calc(228);
+    }
 
     header {
         position: relative;
